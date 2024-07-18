@@ -264,7 +264,7 @@ def main_v6():
 
     def ping_ip(ip, port, resultss, save_best):
         global do_you_save
-        icmp=pinging(ip, count=4, interval=1, timeout=5,privileged=False)
+        icmp=pinging(ip, count=5, interval=1, timeout=5,privileged=False)
         ping_ms=float(icmp.avg_rtt)
         jitter_ms=float(icmp.jitter)
         loss_rate_per=icmp.packet_loss
@@ -292,7 +292,7 @@ def main_v6():
             
 
     console = Console()
-    ports_to_check = [1074 , 864]
+    ports_to_check = [9595 , 80]
 
     random_ip=generate_ipv6()
     best_ping=1000
@@ -311,7 +311,7 @@ def main_v6():
     
     
     resultss = []
-    executor= ThreadPoolExecutor(max_workers=1000)
+    executor= ThreadPoolExecutor(max_workers=5000)
     try:
         for _ in range(101):
         	executor.submit(ping_ip, generate_ipv6(), ports_to_check[random.randint(0,1)],resultss, save_best)
@@ -327,7 +327,7 @@ def main_v6():
 
     for ip, port,ping,loss_rate,jitter, combined_score  in sorted_results:
         
-        table.add_row(ip, str(port) if port else "878", f"{ping:.2f}" if ping else "None", f"{loss_rate:.2f}%",f"{jitter}", f"{combined_score:.2f}")
+        table.add_row(ip, str(port) if port else "939", f"{ping:.2f}" if ping else "None", f"{loss_rate:.2f}%",f"{jitter}", f"{combined_score:.2f}")
         if ping < best_ping:
             best_ping = ping
             best_ip = ip
@@ -387,9 +387,9 @@ def main():
     console.clear()
     console.print("Please wait, scanning IP ...", style="blue")
 
-    start_ips = ["188.114.96.0", "162.159.192.0", "162.159.195.0"]
-    end_ips = ["188.114.99.224", "162.159.193.224", "162.159.195.224"]
-    ports = [1074, 894, 908, 878]
+    start_ips = ["188.114.96.0", "103.22.200.0", "104.16.0.0", "162.158.0.0", "162.159.0.1", "131.0.72.0", "172.64.0.0", "104.24.0.0", "198.41.128.0", "197.234.240.0", "190.93.240.0", "108.162.192.08", "141.101.64.0", "103.31.4.0", "103.21.244.0", "173.245.48.0"]
+    end_ips = ["188.114.111.254", "103.22.203.254", "104.16.255.254", "162.158.255.254", "162.159.255.254", "131.0.75.254", "172.68.255.254", "104.27.255.254", "198.41.134.254", "197.234.246.254", "190.93.255.254", "108.162.255.254", "141.101.127.255", "103.31.7.254", "103.21.247.254", "173.245.63.254"]
+    ports = [1074, 894, 908, 854, 946, 878, 908, 939, 902, 808, 885, 80, 443, 500, 942, 968, 903, 1070, 1014, 3476, 890, 2371]
    
 
     for start_ip, end_ip in zip(start_ips, end_ips):
@@ -524,9 +524,9 @@ def main2():
     	WoW_v2+=f'''
             }},
             "servers": [
-                "https://94.140.14.14/dns-query",
+                "https://adfreedns.top/dns-query",
                 {{
-                    "address": "8.8.8.8",
+                    "address": "1.1.1.1",
                     "domains": [
                         "geosite:category-ir",
                         "domain:.ir"
@@ -679,7 +679,7 @@ def main2():
                 }},
                 {{
                     "ip": [
-                        "8.8.8.8"
+                        "1.1.1.1"
                     ],
                     "outboundTag": "direct",
                     "port": "53",
@@ -736,9 +736,9 @@ def main2():
     	WoW_v2+=f'''
             }},
             "servers": [
-                "https://94.140.14.14/dns-query",
+                "https://adfreedns.top/dns-query",
                 {{
-                    "address": "8.8.8.8",
+                    "address": "1.1.1.1",
                     "domains": [
                         "geosite:category-ir",
                         "domain:.ir"
@@ -866,7 +866,7 @@ def main2():
                 }},
                 {{
                     "ip": [
-                        "8.8.8.8"
+                        "1.1.1.1"
                     ],
                     "outboundTag": "direct",
                     "port": "53",
@@ -974,9 +974,9 @@ def main2():
         	 if isIran=='1' :Wow+=f'''
     }},
     "servers": [
-      "https://94.140.14.14/dns-query",
+      "https://adfreedns.top/dns-query",
       {{
-        "address": "8.8.8.8",
+        "address": "1.1.1.1",
         "domains": [
           "geosite:category-ir",
           "domain:.ir"
@@ -1152,9 +1152,9 @@ def main2():
         	 if isIran == '2' : Wow+=f'''
     }},
     "servers": [
-      "https://94.140.14.14/dns-query",
+      "https://adfreedns.top/dns-query",
       {{
-        "address": "8.8.8.8",
+        "address": "1.1.1.1",
         "domains": [
           "geosite:category-ir",
           "domain:.ir"
@@ -1305,7 +1305,7 @@ def main2():
       }},
       {{
         "ip": [
-          "8.8.8.8"
+          "1.1.1.1"
         ],
         "outboundTag": "direct",
         "port": "53",
@@ -1791,7 +1791,7 @@ if __name__ == "__main__":
     			f.write(txt)
     	text=f'''
 {name}() {{
-bash <(curl -fsSL https://raw.githubusercontent.com/arshiacomplus/WarpScanner/main/install.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/persiansir/Mywarpscaner/main/install.sh)
 }}\n'''
     	with open('/data/data/com.termux/files/usr/etc/bash.bashrc', 'r+') as f:
     	   	content = f.read()
