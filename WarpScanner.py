@@ -1627,7 +1627,7 @@ def generate_wireguard_url(config, endpoint):
     if config.get('Reserved'):
         wireguard_urll += f"&reserved={urlencode(config['Reserved'])}"
     
-    wireguard_urll += "#Tel= @arshiacomplus wire"
+    wireguard_urll += "#Tel= @mohsenstar_codm wire"
 
     return wireguard_urll
 def start_menu():
@@ -1635,21 +1635,21 @@ def start_menu():
     rprint(f'ipv4 : [bold red]{check_ipv[0]}[/bold red]\nipv6 : [bold red]{check_ipv[1]}[/bold red]\n')
     
     options = {
-        "1": "scan ip",
-        "2": "wireguard config",
-        "3": "wireguard config without ip scanning",
-        "4": "wireguard with a sub link",
-        "5": "wireguard for v2ray and mahsaNG",
-        "6": "wireguard for v2ray and mahsaNG without ip scanning",
-        "7": "WoW for v2ray or mahsaNG",
-        "8": "WoW for v2ray or mahsaNG in sub link",
-        "9": "Add/Delete shortcut",
-        "10":"get wireguard.conf",
-        "00" : "info",
-        "0": "Exit"
+        "1": "اسکن آی‌پی تمیز",
+        "2": "کانفیگ وایرگارد",
+        "3": "کانفیگ وایرگارد توسط آی‌پی خود بسازید",
+        "4": "ساخت کانفیگ وایرگارد توسط سابلینک",
+        "5": "ساخت کانفیگ وایرگارد برای وی‌تو‌ری",
+        "6": "ساخت کانفیگ وی‌تو‌ری با آی‌پی دلخواه",
+        "7": "کانفیگ وایرگارد برای وی‌تو‌ری",
+        "8": "ساخت کانفیگ وایرگارد برای وی‌تو‌ری توسط سابلینک",
+        "9": "حذف/اضافه شورتکات",
+        "10":"دریافت یک کانفیگ وایرگارد",
+        "00" : "اطلاعات",
+        "0": "خروج"
     }
 
-    rprint("[bold red]by Telegram= @arshiacomplus[/bold red]")
+    rprint("[bold red]بهبود یافته شده توسط محسن استار[/bold red]")
     for key, value in options.items():
         rprint(f" [bold yellow]{key}[/bold yellow]: {value}")
     what = Prompt.ask("Choose an option", choices=list(options.keys()), default="0")
@@ -1657,11 +1657,11 @@ def start_menu():
 def get_number_of_configs():
     while True:
         try:
-            how_many = int(Prompt.ask('\nHow many configs do you need (2 to 15): '))
-            if how_many >= 2 and how_many <= 15:
+            how_many = int(Prompt.ask('\nHow many configs do you need (2 to 99): '))
+            if how_many >= 2 and how_many <= 99:
                 break
         except ValueError:
-            console.print("[bold red]Please enter a valid number![/bold red]", style="red")
+            console.print("[bold red]شماره صحیح وارد کنید![/bold red]", style="red")
     return how_many
 def gojo_goodbye_animation():
     frames  = [
@@ -1683,12 +1683,12 @@ if __name__ == "__main__":
 
     if what =='1':
         
-        do_you_save=input_p('Do you want to save in a result csv\n', {"1" : 'Yes' , "2" : "No"})
+        do_you_save=input_p('آیا میخواهید نتیجه ذخیره گردد؟csv\n', {"1" : 'بلی' , "2" : "خیر"})
         which = 'n'
         if do_you_save=='1':
         	os.system('termux-setup-storage')
-        	which = input_p('Do you want for bpb panel(with comma) or vahid panel(with enter) in a result csv\n ', {'1' : 'bpb panel(with comma)',
-        	 '2' : 'vahid panel(with enter)'})
+        	which = input_p('  پنل پبپ یا پنل وحید in a result csv\n ', {'1' : 'bpb پنل',
+        	 '2' : 'پنل وحید'})
        
             
         main()
@@ -1696,9 +1696,9 @@ if __name__ == "__main__":
     
         if what == '7':
         	
-        	polrn_block= input_p('Do you want to block p@rn sites\n' , {"1": "Yes", "2": "No"})
+        	polrn_block= input_p('میخواهید محتوای پورن را بلاک کنید؟\n' , {"1": "بلی", "2": "خیر"})
         	
-        	isIran =input_p('Iran or Germany\n' , {"1" : "Ip Iran[faster speed]", "2" : "Germany[slower speed]"})
+        	isIran =input_p('ایران یا آلمان\n' , {"1" : "Ip ایران[سرعت بالاتر]", "2" : "آلمان[سرعت پایین]"})
         	
         	
         main2()
@@ -1737,7 +1737,7 @@ if __name__ == "__main__":
                 endpoint_ip=str(temp_ip2 +":" +str(temp_port2))
                 
                 
-        rprint("[bold green]Please wait, generating WireGuard URL...[/bold green]")
+        rprint("[bold green]در حال ساخت کانفیگ وایرگارد لطفا صبر کنید...[/bold green]")
         try:
             config = fetch_config_from_api()
         except Exception as E:
@@ -1759,7 +1759,7 @@ if __name__ == "__main__":
             print("Failed to generate WireGuard URL.")
     elif what == '8':
     	how_many=get_number_of_configs()
-    	polrn_block= input_p('Do you want to block p@rn sites\n' , {"1": "Yes", "2": "No"})
+    	polrn_block= input_p('محتوای جنسی را بلاک میکنید؟\n' , {"1": "Yes", "2": "No"})
 
     	
     	main2()
@@ -1783,7 +1783,7 @@ if __name__ == "__main__":
     			
     		
     		else:
-    			console.print("\n[bold red]Please enter a name![/bold red]", style="red")
+    			console.print("\n[bold red]یک نام وارد کنید[/bold red]", style="red")
     			
     	with open('/data/data/com.termux/files/usr/etc/bash.bashrc', 'r') as f2:
     		txt= f2.read()
